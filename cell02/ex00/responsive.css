@@ -1,0 +1,15 @@
+.raw{
+    display : flex;
+}
+.cell{
+    border: 2px solid;
+    font-size: 30px;
+    width: 10000px;
+    height: 200px;
+}
+#f{
+    background-color: rgb(91, 147, 91);
+}
+#s{
+    background-color: rgb(235, 112, 112);
+}
