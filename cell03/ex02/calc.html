@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <style>
+        #row {
+            display: flex
+        }
+
+        /* .txt_box{
+            border
+            align-items: center;
+            justify-content: center;
+        } */
+    </style>
+</head>
+
+<body>
+    <form action="" onsubmit="return checkInp()">
+        <label for="Lnum">Left number</label>
+        <input type="text" placeholder="number" id="Lnum" id="Lnum">
+        <select id="operation">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <label for="Rnum">Right number</label>
+        <input type="text" id="Rnum" name="Rnum">
+    </form>
+    <button onclick="checkInp()"
+        style="font-size:18px; background-color:yellow;color:red;border-radius :25px;">Result</button>
+
+
+
+
+    <script>
+
+        function checkInp() {
+            const lnum = document.getElementById("Lnum").value;
+            const rnum = document.getElementById("Rnum").value;
+            const operator = document.getElementById("operation").value;
+
+
+            const a = Number(lnum);
+            const b = Number(rnum);
+            let result;
+            if (isNaN(a)) {
+                alert("Error :(");
+                return false;
+            }
+            else if (isNaN(b)) {
+                alert("Error :(");
+                return false;
+            }
+            if(a>=0 && b>=0)
+            {
+                if (operator === "+") {
+                    result = a + b;
+                }
+                else if (operator === "-") {
+                    result = a - b;
+                }
+                else if (operator === "*") {
+                    result = a * b;
+                }
+                else if (operator === "/") {
+                    if(b===0){
+                        alert("It’s over 9000!");
+                        console.log("It’s over 9000!");
+                    }
+                    else {
+                        result = a / b;
+                    }
+                }
+                else if (operator === "%") {
+                    if(b===0){
+                        alert("It’s over 9000!");
+                        console.log("It’s over 9000!");
+                    }
+                    else {
+                        result = a % b;
+                    }
+                }
+                alert(result);
+                console.log(result);
+            }
+            else{
+                alert("Error :(");
+                console("Error :(");
+            }
+        }
+
+        // function check(){
+        //     if(isNaN(a)){
+        //         alert("Error :(");
+        //         return false;
+        //     }
+        //     else if(isNaN(b)){
+        //         alert("Error :(");
+        //         return false;
+        //     }
+        // }
+
+
+        setInterval(function () {
+            alert("Please, use me...");
+        }, 30000);
+
+    </script>
+
+</body>
+
+</html>

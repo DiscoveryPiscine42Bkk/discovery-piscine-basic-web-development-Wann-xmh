@@ -4,11 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balloon</title>
-    <link rel="stylesheet" href="balloon.css">
-    <script src = "balloon.js"></script>
+    <style>
+        #balloon{
+        height: 200px;
+        width: 200px;
+        background-color: red;
+        border-radius: 50%;
+        
+        margin-left: 50%;
+        margin-top: 40%;
+        /* display:inline-block; */
+    }
+    </style>
 
 </head>
 <body>
     <button id="balloon" onclick="grow()" onmouseleave="smaller()"></button>
+    <script>
+        ball_size=200;
+        min=200;
+        max=420;
+        let i=0;
+
+
+        function grow(){
+            ball_size=ball_size+10;
+            if(ball_size<420 && ball_size>200){
+            balloon.style.width =ball_size+"px";
+            balloon.style.height=ball_size+10 +"px";
+            }
+            else if(ball_size>=420){
+            balloon.style.width =200+"px";
+            balloon.style.height=200 +"px";
+            }
+            change_color();
+
+        }
+
+        function smaller(){
+            ball_size=ball_size-5;
+            if(ball_size<420 && ball_size>200){
+            balloon.style.width =ball_size+"px";
+            balloon.style.height=ball_size+"px";
+            }
+            else{
+                balloon.style.width =200 +"px";
+                change_color2();
+            }
+            change_color2();
+
+        }
+
+        function change_color(){
+            i+=1;
+            const color=["red","green","blue"];
+            balloon.style.backgroundColor= color[i%3];
+            
+        }
+        function change_color2(){
+            i+=1;
+            const color=["blue","green","red"];
+            balloon.style.backgroundColor= color[i%3];
+            
+        }
+    </script>
 </body>
 </html>
