@@ -1,0 +1,46 @@
+body{
+    margin:0%;
+    padding: 0%;
+    background-image: url("https://www.walksworldwide.com/images/general/asia_georgia_caucasus_mountains_hiker_blog.jpg");
+    background-repeat: no-repeat;
+    /* background-size:auto; */
+    background-size: 100%;
+}
+.image1 {
+  background-image: url(https://www.walksworldwide.com/images/general/asia_georgia_caucasus_mountains_hiker_blog.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image2 {
+  background-image: url(https://npr.brightspotcdn.com/bb/0f/d51269314ac39ea48c89439cd235/jules-marvin-eguilos-xlnl6cwijng-unsplash.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax {
+    /* The image used */
+    background-image: url("https://www.walksworldwide.com/images/general/asia_georgia_caucasus_mountains_hiker_blog.jpg");
+  
+    /* Set a specific height */
+    min-height: 1500px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .p{
+    font-size: 36px;
+    font-style: oblique;
+  }
