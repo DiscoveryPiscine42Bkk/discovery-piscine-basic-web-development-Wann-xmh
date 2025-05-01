@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To Do or not to do</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <style>
+    body{
+        background-color: rgb(220, 218, 142);
+    }
+    #ft_list {
+      border: 1px solid rgb(220, 218, 142);
+      padding: 10px;
+      margin-top: 10px;
+    }
+    .todo {
+      padding: 5px;
+      background: #e290dc;
+      margin: 5px 0;
+      cursor: pointer;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-size: 16px;
+      justify-content:center;
+      text-align: center;
+      border-radius: 10px;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        /* grid: auto auto; */
+        padding: 20px;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: rgb(12, 172, 63); font-size: 40px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ; text-shadow: 2cm; "><center>To Do list</center></h1>
+        <button style=" font-size:30px; background-color:yellow;color:red;border-radius :25px;"><center>New</center></button>
+        <div id="ft_list"></div>
+    </div>
+
+  <script>
+    function getTodos() {
+    const cookies = document.cookie.split('; ');
+    for (let cookie of cookies) {
+      if (cookie.startsWith('todos=')) {
+        return JSON.parse(decodeURIComponent(cookie.split('=')[1]));
+      }
+    }
+    return [];
+  }
+  
+  function saveTodos(todos) {
+    document.cookie = 'todos=' + encodeURIComponent(JSON.stringify(todos)) + '; path=/';
+  }
+  
+  function renderTodos() {
+    const ft_list = document.getElementById('ft_list');
+    ft_list.innerHTML = '';
+    const todos = getTodos();
+    for(let i = todos.length -1 ; i>=0 ; i--) {
+      const div = document.createElement('div');
+      div.className = 'todo';
+      div.textContent = todos[i];
+      div.onclick = function () {
+        if (confirm('Do you want to delete this To Do?')) {
+          todos.splice(i, 1);
+          saveTodos(todos);
+          renderTodos();
+        }
+      };
+      ft_list.prepend(div);
+    };
+  }
+  
+  function newTodo() {
+    const text = prompt('Enter your TO DO:');
+    if (text && text.trim() !== '') {
+      const todos = getTodos();
+      todos.unshift(text.trim());
+      saveTodos(todos);
+      renderTodos();
+    }
+  }
+  
+  window.onload = renderTodos;
+    $(document).ready(function(){
+            $("button").click(function(){
+                newTodo();
+            });
+
+
+        });
+  </script>
+
+</body>
+</html>

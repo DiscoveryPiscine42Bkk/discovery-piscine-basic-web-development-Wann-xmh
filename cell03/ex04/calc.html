@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calc</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <style>
         #row {
-            display: flex
+            display: flex;
         }
 
-        /* .txt_box{
+        /* body{
             border
             align-items: center;
             justify-content: center;
@@ -19,7 +20,8 @@
 </head>
 
 <body>
-    <div id="row"></div>
+    <div id="row">
+
     <form action="" onsubmit="return checkInp()">
         <label for="Lnum">Left number</label>
         <input type="text" placeholder="number" id="Lnum" id="Lnum">
@@ -33,8 +35,7 @@
         <label for="Rnum">Right number</label>
         <input type="text" id="Rnum" name="Rnum">
     </form>
-    <button onclick="checkInp()"
-        style="font-size:18px; background-color:yellow;color:red;border-radius :25px;">Result</button>
+    <button style="font-size:18px; background-color:yellow;color:red;border-radius :25px;">Result</button>
 
 
 
@@ -95,10 +96,18 @@
                 console("Error :(");
             }
         }
-
+        
         setInterval(function () {
             alert("Please, use me...");
         }, 30000);
+
+        $(document).ready(function(){
+            $("button").click(function(){
+                checkInp();
+            });
+
+
+        });
 
     </script>
     </div>

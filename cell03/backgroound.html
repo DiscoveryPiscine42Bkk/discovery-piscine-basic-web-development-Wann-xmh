@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="background.js"></script>
+    <title>Change Background color</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+<body>
+
+    <button style="font-size:30px; background-color:yellow;color:red;border-radius :25px;">click me</button>
+    <script>
+        function Change_color(){
+            var a = Math.floor(Math.random()*256);
+            var b = Math.floor(Math.random()*256)
+            var c = Math.floor(Math.random()*256);
+            // alert(1);
+            document.body.style.background= "rgb(" + a + "," + b + "," + c + ")";
+        }
+        $(document).ready(function(){
+            $("button").click(function(){
+                Change_color();
+            });
+
+
+        });
+    </script>
+</body>
+</html>
