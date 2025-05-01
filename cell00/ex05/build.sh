@@ -1,15 +1,15 @@
 #!/bin/bash
  
-    if [ -z $1 ]
+    if [  ]
     then 
         echo "No arguments supplied"
         exit
     fi
 
- for i in $1 $2 $3 
+ for i in $@
     do
     if [ $i ]
     then 
-        echo $i
+        mkdir "ex"$i""
     fi
  done
